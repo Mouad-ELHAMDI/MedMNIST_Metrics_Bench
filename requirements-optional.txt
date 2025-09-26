@@ -1,2 +1,0 @@
-xgboost>=1.7
-pyarrow>=14.0  # optional: to write Parquet
