@@ -22,7 +22,8 @@ Homepage = "https://github.com/your-org/medmnist-bench"
 Issues = "https://github.com/your-org/medmnist-bench/issues"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
+include = ["medmnist_bench*"]
 
 [project.scripts]
 medbench = "medmnist_bench.cli:main"
