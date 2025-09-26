@@ -66,6 +66,3 @@ medbench run-all --config configs/default.yaml --out_dir runs/exp1
 - We fix seeds for numpy/scikit-learn/UMAP/openTSNE as much as their APIs allow.
 - KFold uses deterministic `random_state`.
 - We save all configs alongside outputs for provenance.
-
-## License
-MIT
