@@ -23,7 +23,8 @@ medmnist-bench/
 ├── scripts/                # Utility scripts (data prep, examples)
 │   ├── prepare_medmnist.py
 │   └── run_all.sh
-├── src/medmnist_bench/     # Python package
+├── medmnist_bench/         # Python package
+│   ├── __init__.py
 │   ├── cli.py              # CLI entrypoints (embed, classify, plot, run-all)
 │   ├── data/loader.py      # CSV loading / dataset helpers
 │   ├── dr/tsne_umap.py     # DR methods
