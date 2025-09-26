@@ -9,7 +9,6 @@ description = "Lightweight, reproducible benchmark: DR (t-SNE/UMAP) + nested-CV 
 authors = [{ name = "Mouad Elhamdi" }]
 readme = "README.md"
 requires-python = ">=3.9"
-license = { text = "MIT" }
 keywords = ["MedMNIST", "dimensionality reduction", "t-SNE", "UMAP", "benchmark"]
 classifiers = [
     "Programming Language :: Python :: 3",
