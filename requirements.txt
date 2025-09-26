@@ -5,3 +5,5 @@ umap-learn>=0.5.4
 openTSNE>=1.0.0
 matplotlib>=3.7
 PyYAML>=6.0
+xgboost>=1.7
+pyarrow>=14.0  # optional: to write Parquet
