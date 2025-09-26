@@ -1,30 +1,26 @@
 # src/medmnist_bench/utils/io.py
 import os
 import json
+from pathlib import Path
 import numpy as np
 import pandas as pd
 from typing import Any, Dict
 
 def ensure_dir(path: str | None) -> str:
-    """
-    Ensure a directory exists. If path is None or empty, treat as CWD ('.') and do nothing.
-    Returns a normalized directory path.
-    """
+    """Ensure a directory exists and return its normalized string path."""
     if not path:
         return "."
-    path = os.path.normpath(path)
-    os.makedirs(path, exist_ok=True)
-    return path
+
+    directory = Path(path).expanduser()
+    directory.mkdir(parents=True, exist_ok=True)
+    return os.path.normpath(str(directory))
 
 def ensure_parent(path: str) -> str:
-    """
-    Ensure the parent directory of a *file path* exists.
-    Works for 'file.json' (parent '.') and nested paths like 'runs/exp1/file.json'.
-    Returns the normalized file path (unchanged filename).
-    """
-    parent = os.path.dirname(path) or "."
-    ensure_dir(parent)
-    return os.path.normpath(path)
+    """Ensure the parent directory of a file path exists and return the normalized path."""
+    target = Path(path)
+    parent = target.parent if target.parent != Path("") else Path(".")
+    ensure_dir(str(parent))
+    return os.path.normpath(str(target))
 
 def save_json(obj: Dict[str, Any], path: str) -> None:
     path = ensure_parent(path)
