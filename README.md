@@ -10,8 +10,6 @@ git clone https://github.com/your-org/medmnist-bench.git
 cd medmnist-bench
 python -m venv .venv && source .venv/bin/activate  # on Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-# optional:
-pip install -r requirements-optional.txt
 
 # Run end-to-end with defaults
 medbench run-all --config configs/default.yaml
