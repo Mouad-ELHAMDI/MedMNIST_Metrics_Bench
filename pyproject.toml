@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medmnist-bench"
+version = "0.1.0"
+description = "Lightweight, reproducible benchmark: DR (t-SNE/UMAP) + nested-CV classifiers on MedMNIST"
+authors = [{ name = "Mouad Elhamdi" }]
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["MedMNIST", "dimensionality reduction", "t-SNE", "UMAP", "benchmark"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/medmnist-bench"
+Issues = "https://github.com/your-org/medmnist-bench/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["medmnist_bench*"]
+
+[project.scripts]
+medbench = "medmnist_bench.cli:main"

@@ -1,0 +1,53 @@
+# Global settings
+seed: 42
+data_dir: "data/MedMNIST-V2/MedMNIST"   # update to your CSV path base
+out_dir: "runs/default"
+
+# Datasets (CSV files expected in data_dir). Each file must have features then label in last column.
+datasets:
+  - pneumoniamnist
+  - retinamnist
+  - bloodmnist
+  - dermamnist
+  - organsmnist
+  - organcmnist
+  - organamnist
+
+metrics: ["euclidean", "manhattan", "cosine", "correlation", "canberra"]
+
+tsne:
+  perplexity: 10
+  metric_override: null       # if not null, use this for all t-SNE
+
+umap:
+  n_neighbors: 10
+  n_components: 2
+  init: "pca"
+  metric_override: null       # if not null, use this for all UMAP
+
+classifiers: ["svm", "knn", "random_forest", "xgboost"]
+
+grids:
+  svm:
+    C: [10, 100]
+    gamma: [0.5, 0.1, 0.05, 0.01, 0.001]
+    kernel: ["rbf"]
+  knn:
+    n_neighbors: [3, 5, 7, 9, 13, 15]
+    weights: ["uniform", "distance"]
+    algorithm: ["auto"]
+  random_forest:
+    n_estimators: [200]
+    max_depth: [null, 10]
+    max_features: ["sqrt", "log2"]
+    criterion: ["gini", "entropy"]
+  xgboost:
+    n_estimators: [50, 100]
+    learning_rate: [0.01, 0.1]
+    max_depth: [3, 5]
+    subsample: [0.8, 1.0]
+    colsample_bytree: [0.8, 1.0]
+
+cv:
+  outer_splits: 3
+  inner_splits: 3
